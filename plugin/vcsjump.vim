@@ -103,7 +103,7 @@
 " git archive -o vcs-jump-$VERSION.zip HEAD -- .
 " ```
 "
-" - Upload to http://www.vim.org/scripts/script.php?script_id=5220
+" - Upload to http://www.vim.org/scripts/script.php?script_id=5790
 "
 "
 " # Authors
