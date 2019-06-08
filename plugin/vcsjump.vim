@@ -1,4 +1,9 @@
 ""
+" @header
+"
+" @image https://raw.githubusercontent.com/wincent/vcs-jump/media/logo.png center
+
+""
 " @plugin vcs-jump vcs-jump plug-in for Vim
 "
 " # Intro

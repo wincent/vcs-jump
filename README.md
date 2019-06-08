@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/wincent/vcs-jump/media/logo.png" />
+</p>
 
 # vcs-jump<a name="vcs-jump-vcs-jump" href="#user-content-vcs-jump-vcs-jump"></a>
 
