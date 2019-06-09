@@ -41,6 +41,26 @@ Subcommands are:
 - &quot;grep&quot;: Results are grep hits. Arguments are given to the underlying Git or Mercurial `grep` command.
 
 
+## Mappings<a name="vcs-jump-mappings" href="#user-content-vcs-jump-mappings"></a>
+
+
+### `<Plug>(VcsJump)`<a name="vcs-jump-plugvcsjump" href="#user-content-vcs-jump-plugvcsjump"></a>
+
+This mapping invokes the bundled `vcs-jump` script, defaulting to &quot;diff&quot; mode.
+
+By default, `<Leader>d` will invoke this mapping unless:
+
+- A mapping with the same <strong>`{lhs}`</strong> already exists; or:
+- An alternative mapping to <strong>[`<Plug>(VcsJump)`](#user-content-plugvcsjump)</strong> has already been defined in your <strong>`.vimrc`</strong>.
+
+You can create a different mapping like this:
+
+```
+" Use <Leader>g instead of <Leader>d
+nmap <Leader>d <Plug>(VcsJump)
+```
+
+
 ## Options<a name="vcs-jump-options" href="#user-content-vcs-jump-options"></a>
 
 <p align="right"><a name="gvcsjumploaded" href="#user-content-gvcsjumploaded"><code>g:VcsJumpLoaded</code></a></p>

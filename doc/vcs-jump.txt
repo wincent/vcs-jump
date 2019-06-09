@@ -6,12 +6,13 @@ CONTENTS                                                     *vcs-jump-contents*
 2. Requirements      |vcs-jump-requirements|
 3. Installation      |vcs-jump-installation|
 4. Commands          |vcs-jump-commands|
-5. Options           |vcs-jump-options|
-6. Website           |vcs-jump-website|
-7. License           |vcs-jump-license|
-8. Development       |vcs-jump-development|
-9. Authors           |vcs-jump-authors|
-10. History          |vcs-jump-history|
+5. Mappings          |vcs-jump-mappings|
+6. Options           |vcs-jump-options|
+7. Website           |vcs-jump-website|
+8. License           |vcs-jump-license|
+9. Development       |vcs-jump-development|
+10. Authors          |vcs-jump-authors|
+11. History          |vcs-jump-history|
 
 INTRO                                                           *vcs-jump-intro*
 
@@ -55,6 +56,23 @@ Subcommands are:
 - "grep": Results are grep hits. Arguments are given to the underlying Git
   or Mercurial `grep` command.
 
+MAPPINGS                                                     *vcs-jump-mappings*
+
+
+                                                               *<Plug>(VcsJump)*
+This mapping invokes the bundled `vcs-jump` script, defaulting to "diff" mode.
+
+By default, `<Leader>d` will invoke this mapping unless:
+
+- A mapping with the same |{lhs}| already exists; or:
+- An alternative mapping to |<Plug>(VcsJump)| has already been defined in your
+  |.vimrc|.
+
+You can create a different mapping like this:
+>
+    " Use <Leader>g instead of <Leader>d
+    nmap <Leader>d <Plug>(VcsJump)
+<
 OPTIONS                                                       *vcs-jump-options*
 
 

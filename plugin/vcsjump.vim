@@ -167,7 +167,7 @@ command! -nargs=+ -complete=file VcsJump call vcsjump#jump(<q-args>)
 
 if !hasmapto('<Plug>(VcsJump)') && maparg('<Leader>d', 'n') ==# ''
   ""
-  " @mappings <Plug>(VcsJump)
+  " @mapping <Plug>(VcsJump)
   "
   " This mapping invokes the bundled `vcs-jump` script, defaulting to "diff"
   " mode.
