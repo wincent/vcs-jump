@@ -118,6 +118,10 @@
 "
 " # History
 "
+" ## master (not yet released)
+"
+" - Provide a meaningful title for the |quickfix| listing.
+"
 " ## 0.1 (2 June 2019)
 "
 " - Initial release: originally extracted from my dotfiles in

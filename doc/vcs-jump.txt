@@ -162,6 +162,10 @@ vcs-jump is written and maintained by Greg Hurrell <greg@hurrell.net>.
 
 HISTORY                                                       *vcs-jump-history*
 
+master (not yet released) ~
+
+- Provide a meaningful title for the |quickfix| listing.
+
 0.1 (2 June 2019) ~
 
 - Initial release: originally extracted from my dotfiles in
