@@ -121,6 +121,9 @@
 " ## master (not yet released)
 "
 " - Provide a meaningful title for the |quickfix| listing.
+" - Run `git diff` with `--no-color` to prevent a `git config color.ui` setting
+"   of "always" from breaking diff mode
+"   (https://github.com/wincent/vcs-jump/issues/1)
 "
 " ## 0.1 (2 June 2019)
 "
