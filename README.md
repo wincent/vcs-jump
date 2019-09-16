@@ -57,7 +57,7 @@ You can create a different mapping like this:
 
 ```
 " Use <Leader>g instead of <Leader>d
-nmap <Leader>d <Plug>(VcsJump)
+nmap <Leader>g <Plug>(VcsJump)
 ```
 
 
@@ -147,6 +147,10 @@ git archive -o vcs-jump-$VERSION.zip HEAD -- .
 ## Authors<a name="vcs-jump-authors" href="#user-content-vcs-jump-authors"></a>
 
 vcs-jump is written and maintained by Greg Hurrell &lt;greg@hurrell.net&gt;.
+
+Other contributors that have submitted patches include (in alphabetical order):
+
+- Pascal Lalancette
 
 
 ## History<a name="vcs-jump-history" href="#user-content-vcs-jump-history"></a>

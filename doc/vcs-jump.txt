@@ -71,7 +71,7 @@ By default, `<Leader>d` will invoke this mapping unless:
 You can create a different mapping like this:
 >
     " Use <Leader>g instead of <Leader>d
-    nmap <Leader>d <Plug>(VcsJump)
+    nmap <Leader>g <Plug>(VcsJump)
 <
 OPTIONS                                                       *vcs-jump-options*
 
@@ -159,6 +159,11 @@ At the moment the release process is manual:
 AUTHORS                                                       *vcs-jump-authors*
 
 vcs-jump is written and maintained by Greg Hurrell <greg@hurrell.net>.
+
+Other contributors that have submitted patches include (in alphabetical
+order):
+
+- Pascal Lalancette
 
 HISTORY                                                       *vcs-jump-history*
 
