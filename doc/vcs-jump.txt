@@ -160,6 +160,11 @@ AUTHORS                                                       *vcs-jump-authors*
 
 vcs-jump is written and maintained by Greg Hurrell <greg@hurrell.net>.
 
+Other contributors that have submitted patches include (in alphabetical
+order):
+
+- Pascal Lalancette
+
 HISTORY                                                       *vcs-jump-history*
 
 master (not yet released) ~

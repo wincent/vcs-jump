@@ -148,6 +148,10 @@ git archive -o vcs-jump-$VERSION.zip HEAD -- .
 
 vcs-jump is written and maintained by Greg Hurrell &lt;greg@hurrell.net&gt;.
 
+Other contributors that have submitted patches include (in alphabetical order):
+
+- Pascal Lalancette
+
 
 ## History<a name="vcs-jump-history" href="#user-content-vcs-jump-history"></a>
 
