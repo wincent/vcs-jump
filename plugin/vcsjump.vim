@@ -189,7 +189,7 @@ if !hasmapto('<Plug>(VcsJump)') && maparg('<Leader>d', 'n') ==# ''
   "
   " ```
   " " Use <Leader>g instead of <Leader>d
-  " nmap <Leader>d <Plug>(VcsJump)
+  " nmap <Leader>g <Plug>(VcsJump)
   " ```
   "
   nmap <unique> <Leader>d <Plug>(VcsJump)

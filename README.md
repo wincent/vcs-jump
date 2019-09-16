@@ -57,7 +57,7 @@ You can create a different mapping like this:
 
 ```
 " Use <Leader>g instead of <Leader>d
-nmap <Leader>d <Plug>(VcsJump)
+nmap <Leader>g <Plug>(VcsJump)
 ```
 
 
