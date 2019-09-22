@@ -46,12 +46,6 @@ def absolutize(file)
   Pathname.new(file).realpath
 end
 
-def relativize(file)
-  return file if git?
-  relative = pwd.relative_path_from(root).to_s
-  file.to_s.sub("#{relative}/", '')
-end
-
 def git_root
   root = `git rev-parse --show-toplevel 2> /dev/null`.chomp
   [absolutize(root), 'git'] if $?.success?
@@ -103,13 +97,13 @@ end
 
 def mode_diff(args)
   args = shellescape(args)
-  diff =  git? ? `git diff --no-color --relative #{args}` : `hg diff --git --root . #{args}`
+  diff =  git? ? `git diff --no-color #{args}` : `hg diff --git --root . #{args}`
   idx  = nil
   file = nil
 
   diff.lines.each do |line|
     # setting the inner Perl hacker free since 2007
-    (line =~ %r{^\+\+\+ b/(.*)}) ? (file = relativize($~[1])) : (next unless file)
+    (line =~ %r{^\+\+\+ b/(.*)}) ? (file = absolutize($~[1])) : (next unless file)
     (line =~ %r{^@@ .*\+(\d+)}) ? (idx = $~[1].to_i) : (next unless idx)
     (line =~ %r{^ }) && (idx += 1; next)
     (line =~ %r{^[-+]\s*(.*)}) && ( puts "#{file}:#{idx}: #{$~[1]}"; idx = nil)
@@ -152,6 +146,8 @@ if ARGV.count < 1
 end
 
 mode = ARGV.shift
+FileUtils.cd(ARGV.shift)
+FileUtils.cd(root)
 
 if STDOUT.tty?
   begin
