@@ -46,12 +46,6 @@ def absolutize(file)
   Pathname.new(file).realpath
 end
 
-def relativize(file)
-  return file if git?
-  relative = pwd.relative_path_from(root).to_s
-  file.to_s.sub("#{relative}/", '')
-end
-
 def git_root
   root = `git rev-parse --show-toplevel 2> /dev/null`.chomp
   [absolutize(root), 'git'] if $?.success?
@@ -103,13 +97,13 @@ end
 
 def mode_diff(args)
   args = shellescape(args)
-  diff =  git? ? `git diff --no-color --relative #{args}` : `hg diff --git --root . #{args}`
+  diff =  git? ? `git diff --no-color #{args}` : `hg diff --git #{args}`
   idx  = nil
   file = nil
 
   diff.lines.each do |line|
     # setting the inner Perl hacker free since 2007
-    (line =~ %r{^\+\+\+ b/(.*)}) ? (file = relativize($~[1])) : (next unless file)
+    (line =~ %r{^\+\+\+ b/(.*)}) ? (file = root + $~[1]) : (next unless file)
     (line =~ %r{^@@ .*\+(\d+)}) ? (idx = $~[1].to_i) : (next unless idx)
     (line =~ %r{^ }) && (idx += 1; next)
     (line =~ %r{^[-+]\s*(.*)}) && ( puts "#{file}:#{idx}: #{$~[1]}"; idx = nil)
@@ -118,8 +112,9 @@ end
 
 def mode_merge(__args__ignored)
   if git?
+    prefix = "#{pwd}/"
     command = 'git ls-files -u'
-    filter = "perl -pe 's/^.*?\\t//'"
+    filter = "perl -pe 's#^.*?\\t##{prefix}#'"
   else
     command = 'hg resolve -l'
     filter = "egrep -e '^U\\s+' | perl -pe 's#^U\\s+##{root}/#'"
@@ -135,14 +130,16 @@ def mode_merge(__args__ignored)
   }
 end
 
-# `grep -n` generates nice quickfix-looking lines by itself,
-# but let's clean up extra whitespace, so they look better if the
-# editor shows them to us in the status bar.
 def mode_grep(args)
   if git?
-    puts %x{git grep -n #{shellescape args} | perl -pe 's/[ \t]+/ /g; s/^ *//;'}
+    # `grep -n` generates nice quickfix-looking lines by itself,
+    # but let's clean up extra whitespace, so they look better if the
+    # editor shows them to us in the status bar.
+    files = %x{git grep -n #{shellescape args}}.lines
+    puts files.collect { |f| pwd + f.chomp.sub(/:\s*/, ':') }
   else
-    puts %x{hg grep -n #{shellescape args} | perl -pe 's/[ \t]+/ /g; s/^ *//;'}
+    files = %x{hg grep --template '{path}:{lineno}:{texts}\n' #{shellescape args}}.lines
+    puts files.collect { |f| root + f.chomp.sub(/:\s*/, ':') }
   end
 end
 
