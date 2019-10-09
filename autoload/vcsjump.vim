@@ -10,7 +10,7 @@ endfunction
 
 function! vcsjump#jump(command) abort
   let l:command=join(map(split(a:command), 'shellescape(v:val)'))
-  cexpr system(s:jump_path . ' ' . l:command . ' 2> /dev/null')
+  cexpr system('cd '. expand("%:p:h:S") . ' && ' . s:jump_path . ' ' . l:command . ' 2> /dev/null')
   call s:set_title('vcs-jump ' . a:command)
   cwindow
 endfunction
