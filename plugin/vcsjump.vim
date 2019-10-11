@@ -128,6 +128,10 @@
 " - Run `git diff` with `--no-color` to prevent a `git config color.ui` setting
 "   of "always" from breaking diff mode
 "   (https://github.com/wincent/vcs-jump/issues/1)
+" - Add |g:VcsJumpMode| and teach |:VcsJump| to accept a |:command-bang| suffix
+"   that can be used to make vcs-jump operate relative to the current buffer
+"   instead of the current working directory (patch from Pascal Lalancette,
+"   https://github.com/wincent/vcs-jump/pull/5).
 "
 " ## 0.1 (2 June 2019)
 "

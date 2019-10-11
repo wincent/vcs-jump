@@ -176,6 +176,7 @@ Other contributors that have submitted patches include (in alphabetical order):
 
 - Provide a meaningful title for the <strong>`quickfix`</strong> listing.
 - Run `git diff` with `--no-color` to prevent a `git config color.ui` setting of &quot;always&quot; from breaking diff mode (https://github.com/wincent/vcs-jump/issues/1)
+- Add <strong>[`g:VcsJumpMode`](#user-content-gvcsjumpmode)</strong> and teach <strong>[`:VcsJump`](#user-content-vcsjump)</strong> to accept a <strong>`:command-bang`</strong> suffix that can be used to make vcs-jump operate relative to the current buffer instead of the current working directory (patch from Pascal Lalancette, https://github.com/wincent/vcs-jump/pull/5).
 
 
 ### 0.1 (2 June 2019)<a name="vcs-jump-01-2-june-2019" href="#user-content-vcs-jump-01-2-june-2019"></a>
