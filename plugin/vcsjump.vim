@@ -174,7 +174,11 @@ set cpoptions&vim
 " - "grep": Results are grep hits. Arguments are given to the underlying Git or
 "   Mercurial `grep` command.
 "
-command! -nargs=+ -complete=file VcsJump call vcsjump#jump(<q-args>)
+" When called with a trailing |:command-bang| (eg. `:VcsJump!`) the current
+" value of the |g:VcsJumpMode| setting is inverted for the duration of that
+" invocation.
+"
+command! -bang -nargs=+ -complete=file VcsJump call vcsjump#jump(<bang>0, <q-args>)
 
 if !hasmapto('<Plug>(VcsJump)') && maparg('<Leader>d', 'n') ==# ''
   ""

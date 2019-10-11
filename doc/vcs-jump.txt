@@ -56,6 +56,9 @@ Subcommands are:
 - "grep": Results are grep hits. Arguments are given to the underlying Git
   or Mercurial `grep` command.
 
+When called with a trailing |:command-bang| (eg. `:VcsJump!`) the current value
+of the |g:VcsJumpMode| setting is inverted for the duration of that invocation.
+
 MAPPINGS                                                     *vcs-jump-mappings*
 
 
@@ -74,6 +77,21 @@ You can create a different mapping like this:
     nmap <Leader>g <Plug>(VcsJump)
 <
 OPTIONS                                                       *vcs-jump-options*
+
+
+                                                                 *g:VcsJumpMode*
+|g:VcsJumpMode|                                          string (default: "cwd")
+
+Controls whether vcs-jump should operate relative to Vim's current working
+directory (when |g:VcsJumpMode| is "cwd", the default) or to the current
+buffer (when |g:VcsJumpMode| is "buffer").
+
+To override the default, add this to your |.vimrc|:
+>
+    let g:VcsJumpMode="buffer"
+<
+Note that you can temporarily invert the sense of this setting by running
+|:VcsJump| with a trailing |:command-bang| (eg. `:VcsJump!`).
 
 
                                                                *g:VcsJumpLoaded*
