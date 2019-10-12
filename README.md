@@ -40,6 +40,8 @@ Subcommands are:
 - &quot;merge&quot;: Results are merge conflicts. Arguments are ignored.
 - &quot;grep&quot;: Results are grep hits. Arguments are given to the underlying Git or Mercurial `grep` command.
 
+When called with a trailing <strong>`:command-bang`</strong> (eg. `:VcsJump!`) the current value of the <strong>[`g:VcsJumpMode`](#user-content-gvcsjumpmode)</strong> setting is inverted for the duration of that invocation.
+
 
 ## Mappings<a name="vcs-jump-mappings" href="#user-content-vcs-jump-mappings"></a>
 
@@ -62,6 +64,20 @@ nmap <Leader>g <Plug>(VcsJump)
 
 
 ## Options<a name="vcs-jump-options" href="#user-content-vcs-jump-options"></a>
+
+<p align="right"><a name="gvcsjumpmode" href="#user-content-gvcsjumpmode"><code>g:VcsJumpMode</code></a></p>
+
+### `g:VcsJumpMode` (string, default: "cwd")<a name="vcs-jump-gvcsjumpmode-string-default-cwd" href="#user-content-vcs-jump-gvcsjumpmode-string-default-cwd"></a>
+
+Controls whether vcs-jump should operate relative to Vim's current working directory (when <strong>[`g:VcsJumpMode`](#user-content-gvcsjumpmode)</strong> is &quot;cwd&quot;, the default) or to the current buffer (when <strong>[`g:VcsJumpMode`](#user-content-gvcsjumpmode)</strong> is &quot;buffer&quot;).
+
+To override the default, add this to your <strong>`.vimrc`</strong>:
+
+```
+let g:VcsJumpMode="buffer"
+```
+
+Note that you can temporarily invert the sense of this setting by running <strong>[`:VcsJump`](#user-content-vcsjump)</strong> with a trailing <strong>`:command-bang`</strong> (eg. `:VcsJump!`).
 
 <p align="right"><a name="gvcsjumploaded" href="#user-content-gvcsjumploaded"><code>g:VcsJumpLoaded</code></a></p>
 
@@ -160,6 +176,7 @@ Other contributors that have submitted patches include (in alphabetical order):
 
 - Provide a meaningful title for the <strong>`quickfix`</strong> listing.
 - Run `git diff` with `--no-color` to prevent a `git config color.ui` setting of &quot;always&quot; from breaking diff mode (https://github.com/wincent/vcs-jump/issues/1)
+- Add <strong>[`g:VcsJumpMode`](#user-content-gvcsjumpmode)</strong> and teach <strong>[`:VcsJump`](#user-content-vcsjump)</strong> to accept a <strong>`:command-bang`</strong> suffix that can be used to make vcs-jump operate relative to the current buffer instead of the current working directory (patch from Pascal Lalancette, https://github.com/wincent/vcs-jump/pull/5).
 
 
 ### 0.1 (2 June 2019)<a name="vcs-jump-01-2-june-2019" href="#user-content-vcs-jump-01-2-june-2019"></a>

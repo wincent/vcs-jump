@@ -128,6 +128,10 @@
 " - Run `git diff` with `--no-color` to prevent a `git config color.ui` setting
 "   of "always" from breaking diff mode
 "   (https://github.com/wincent/vcs-jump/issues/1)
+" - Add |g:VcsJumpMode| and teach |:VcsJump| to accept a |:command-bang| suffix
+"   that can be used to make vcs-jump operate relative to the current buffer
+"   instead of the current working directory (patch from Pascal Lalancette,
+"   https://github.com/wincent/vcs-jump/pull/5).
 "
 " ## 0.1 (2 June 2019)
 "
@@ -174,7 +178,11 @@ set cpoptions&vim
 " - "grep": Results are grep hits. Arguments are given to the underlying Git or
 "   Mercurial `grep` command.
 "
-command! -nargs=+ -complete=file VcsJump call vcsjump#jump(<q-args>)
+" When called with a trailing |:command-bang| (eg. `:VcsJump!`) the current
+" value of the |g:VcsJumpMode| setting is inverted for the duration of that
+" invocation.
+"
+command! -bang -nargs=+ -complete=file VcsJump call vcsjump#jump(<bang>0, <q-args>)
 
 if !hasmapto('<Plug>(VcsJump)') && maparg('<Leader>d', 'n') ==# ''
   ""

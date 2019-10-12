@@ -8,9 +8,31 @@ function! s:set_title(title)
   endif
 endfunction
 
-function! vcsjump#jump(command) abort
+function! vcsjump#jump(bang, command) abort
+  ""
+  " @option g:VcsJumpMode string "cwd"
+  "
+  " Controls whether vcs-jump should operate relative to Vim's current working
+  " directory (when |g:VcsJumpMode| is "cwd", the default) or to the current
+  " buffer (when |g:VcsJumpMode| is "buffer").
+  "
+  " To override the default, add this to your |.vimrc|:
+  "
+  " ```
+  " let g:VcsJumpMode="buffer"
+  " ```
+  "
+  " Note that you can temporarily invert the sense of this setting by running
+  " |:VcsJump| with a trailing |:command-bang| (eg. `:VcsJump!`).
+  "
+  let l:buffer_mode=get(g:, 'VcsJumpMode', 'cwd') ==# 'buffer'
+  let l:buffer_mode=a:bang ? !l:buffer_mode : l:buffer_mode
+  let l:cd=l:buffer_mode ? 'cd ' . expand("%:p:h:S") . ' && ' : ''
   let l:command=join(map(split(a:command), 'shellescape(v:val)'))
-  cexpr system(s:jump_path . ' ' . l:command . ' 2> /dev/null')
+  cexpr system(
+        \   l:cd .
+        \   s:jump_path . ' ' . l:command . ' 2> /dev/null'
+        \ )
   call s:set_title('vcs-jump ' . a:command)
   cwindow
 endfunction
