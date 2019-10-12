@@ -194,7 +194,7 @@ Other contributors that have submitted patches include (in alphabetical order):
 ## History<a name="vcs-jump-history" href="#user-content-vcs-jump-history"></a>
 
 
-### master (not yet released)<a name="vcs-jump-master-not-yet-released" href="#user-content-vcs-jump-master-not-yet-released"></a>
+### 1.0 (12 October 2019)<a name="vcs-jump-10-12-october-2019" href="#user-content-vcs-jump-10-12-october-2019"></a>
 
 - Provide a meaningful title for the <strong>`quickfix`</strong> listing.
 - Run `git diff` with `--no-color` to prevent a `git config color.ui` setting of &quot;always&quot; from breaking diff mode (https://github.com/wincent/vcs-jump/issues/1)

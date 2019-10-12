@@ -153,7 +153,7 @@
 "
 " # History
 "
-" ## master (not yet released)
+" ## 1.0 (12 October 2019)
 "
 " - Provide a meaningful title for the |quickfix| listing.
 " - Run `git diff` with `--no-color` to prevent a `git config color.ui` setting
