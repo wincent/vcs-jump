@@ -203,4 +203,4 @@ Other contributors that have submitted patches include (in alphabetical order):
 
 ### 0.1 (2 June 2019)<a name="vcs-jump-01-2-june-2019" href="#user-content-vcs-jump-01-2-june-2019"></a>
 
-- Initial release: originally extracted from my dotfiles in https://wincent.com/n/vcs-jump-origin and then iterated on before extracting into a standalone Vim plugin.
+- Initial release: originally extracted from my dotfiles in https://wincent.com/n/vcs-jump-origin and then iterated on before extracting into a standalone Vim plug-in.

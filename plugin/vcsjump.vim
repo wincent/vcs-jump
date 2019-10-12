@@ -168,7 +168,7 @@
 "
 " - Initial release: originally extracted from my dotfiles in
 "   https://wincent.com/n/vcs-jump-origin and then iterated on before extracting
-"   into a standalone Vim plugin.
+"   into a standalone Vim plug-in.
 "
 
 ""
