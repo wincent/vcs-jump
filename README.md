@@ -23,6 +23,28 @@ https://git.kernel.org/pub/scm/git/git.git/tree/contrib/git-jump
 
 To install vcs-jump, use your plug-in management system of choice.
 
+vcs-jump consists of a Vim plug-in that provides a <strong>[`:VcsJump`](#user-content-vcsjump)</strong> command which invokes a bundled `vcs-jump` executable. The executable itself is useful outside of Vim, so you may wish to add the plug-in's `bin` directory to your `$PATH`; for example, if you installed the plug-in inside `~/.vim/pack/bundle/vcs-jump`, you could add the following to your shell's startup file:
+
+```
+export PATH=$PATH:~/.vim/pack/bundle/vcs-jump/bin
+```
+
+See <strong>[`vcs-jump-usage`](#user-content-vcs-jump-usage)</strong> for a description of usage from the command-line.
+
+
+## Usage<a name="vcs-jump-usage" href="#user-content-vcs-jump-usage"></a>
+
+vcs-jump can be used from inside or outside of Vim. Inside Vim, run <strong>[`:VcsJump`](#user-content-vcsjump)</strong> to populate the <strong>`quickfix`</strong> list with &quot;interesting&quot; locations (diff hunks, merge conflicts, or grep results).
+
+Outside of Vim, provided you have set up your `$PATH` as described in <strong>[`vcs-jump-installation`](#user-content-vcs-jump-installation)</strong>, you can run the bundled `vcs-jump` executable in any of the following ways to open Vim and immediately populate the <strong>`quickfix`</strong> list:
+
+```
+vcs-jump diff # find hunks with diffs relative to current HEAD
+vcs-jump diff HEAD~10 # find hunks with diffs relative to specified commit
+vcs-jump grep stuff # find grep results for "stuff"
+vcs-jump merge # find merge conflicts
+```
+
 
 ## Commands<a name="vcs-jump-commands" href="#user-content-vcs-jump-commands"></a>
 
