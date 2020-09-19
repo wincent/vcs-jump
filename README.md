@@ -4,7 +4,6 @@
 
 # vcs-jump<a name="vcs-jump-vcs-jump" href="#user-content-vcs-jump-vcs-jump"></a>
 
-
 ## Intro<a name="vcs-jump-intro" href="#user-content-vcs-jump-intro"></a>
 
 This plug-in allows you to jump to useful places within a Git or Mercurial repository: diff hunks, merge conflicts, and &quot;grep&quot; results.
@@ -13,11 +12,9 @@ The actual work is done by the included `vcs-jump` script, which is a Ruby port 
 
 https://git.kernel.org/pub/scm/git/git.git/tree/contrib/git-jump
 
-
 ## Requirements<a name="vcs-jump-requirements" href="#user-content-vcs-jump-requirements"></a>
 
 - A Ruby interpreter must be available on the host system: the `vcs-jump` script uses a &quot;shebang&quot; line of &quot;/usr/bin/env ruby&quot;.
-
 
 ## Installation<a name="vcs-jump-installation" href="#user-content-vcs-jump-installation"></a>
 
@@ -31,7 +28,6 @@ export PATH=$PATH:~/.vim/pack/bundle/vcs-jump/bin
 
 See <strong>[`vcs-jump-usage`](#user-content-vcs-jump-usage)</strong> for a description of usage from the command-line.
 
-
 ## Usage<a name="vcs-jump-usage" href="#user-content-vcs-jump-usage"></a>
 
 vcs-jump can be used from inside or outside of Vim. Inside Vim, run <strong>[`:VcsJump`](#user-content-vcsjump)</strong> to populate the <strong>`quickfix`</strong> list with &quot;interesting&quot; locations (diff hunks, merge conflicts, or grep results).
@@ -44,7 +40,6 @@ vcs-jump diff HEAD~10 # find hunks with diffs relative to specified commit
 vcs-jump grep stuff # find grep results for "stuff"
 vcs-jump merge # find merge conflicts
 ```
-
 
 ## Commands<a name="vcs-jump-commands" href="#user-content-vcs-jump-commands"></a>
 
@@ -64,9 +59,7 @@ Subcommands are:
 
 When called with a trailing <strong>`:command-bang`</strong> (eg. `:VcsJump!`) the current value of the <strong>[`g:VcsJumpMode`](#user-content-gvcsjumpmode)</strong> setting is inverted for the duration of that invocation.
 
-
 ## Mappings<a name="vcs-jump-mappings" href="#user-content-vcs-jump-mappings"></a>
-
 
 ### `<Plug>(VcsJump)`<a name="vcs-jump-plugvcsjump" href="#user-content-vcs-jump-plugvcsjump"></a>
 
@@ -83,7 +76,6 @@ You can create a different mapping like this:
 " Use <Leader>g instead of <Leader>d
 nmap <Leader>g <Plug>(VcsJump)
 ```
-
 
 ## Options<a name="vcs-jump-options" href="#user-content-vcs-jump-options"></a>
 
@@ -111,7 +103,6 @@ To prevent vcs-jump from being loaded, set <strong>[`g:VcsJumpLoaded`](#user-con
 let g:VcsJumpLoaded=1
 ```
 
-
 ## Website<a name="vcs-jump-website" href="#user-content-vcs-jump-website"></a>
 
 The official vcs-jump source code repo is at:
@@ -126,7 +117,6 @@ Official releases are listed at:
 
 http://www.vim.org/scripts/script.php?script_id=5790
 
-
 ## License<a name="vcs-jump-license" href="#user-content-vcs-jump-license"></a>
 
 Copyright 2014-present Greg Hurrell. All rights reserved.
@@ -139,14 +129,11 @@ Redistribution and use in source and binary forms, with or without modification,
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
 ## Development<a name="vcs-jump-development" href="#user-content-vcs-jump-development"></a>
-
 
 ### Contributing patches<a name="vcs-jump-contributing-patches" href="#user-content-vcs-jump-contributing-patches"></a>
 
 Patches can be sent via mail to greg@hurrell.net, or as GitHub pull requests at: https://github.com/wincent/vcs-jump/pulls
-
 
 ### Cutting a new release<a name="vcs-jump-cutting-a-new-release" href="#user-content-vcs-jump-cutting-a-new-release"></a>
 
@@ -181,25 +168,26 @@ git archive -o vcs-jump-$VERSION.zip HEAD -- .
 
 - Upload to http://www.vim.org/scripts/script.php?script_id=5790
 
-
 ## Authors<a name="vcs-jump-authors" href="#user-content-vcs-jump-authors"></a>
 
 vcs-jump is written and maintained by Greg Hurrell &lt;greg@hurrell.net&gt;.
 
 Other contributors that have submitted patches include (in alphabetical order):
 
+- Aaron Schrab
 - Pascal Lalancette
-
 
 ## History<a name="vcs-jump-history" href="#user-content-vcs-jump-history"></a>
 
+### master (not yet released)<a name="vcs-jump-master-not-yet-released" href="#user-content-vcs-jump-master-not-yet-released"></a>
+
+- Pass `diff.mnemonicPrefix=no` to Git to ensure `diff` output is parseable (patch from Aaron Schrab, https://github.com/wincent/vcs-jump/pull/7).
 
 ### 1.0 (12 October 2019)<a name="vcs-jump-10-12-october-2019" href="#user-content-vcs-jump-10-12-october-2019"></a>
 
 - Provide a meaningful title for the <strong>`quickfix`</strong> listing.
 - Run `git diff` with `--no-color` to prevent a `git config color.ui` setting of &quot;always&quot; from breaking diff mode (https://github.com/wincent/vcs-jump/issues/1)
 - Add <strong>[`g:VcsJumpMode`](#user-content-gvcsjumpmode)</strong> and teach <strong>[`:VcsJump`](#user-content-vcsjump)</strong> to accept a <strong>`:command-bang`</strong> suffix that can be used to make vcs-jump operate relative to the current buffer instead of the current working directory (patch from Pascal Lalancette, https://github.com/wincent/vcs-jump/pull/5).
-
 
 ### 0.1 (2 June 2019)<a name="vcs-jump-01-2-june-2019" href="#user-content-vcs-jump-01-2-june-2019"></a>
 

@@ -149,9 +149,15 @@
 " Other contributors that have submitted patches include (in alphabetical
 " order):
 "
+" - Aaron Schrab
 " - Pascal Lalancette
 "
 " # History
+"
+" ## master (not yet released)
+"
+" - Pass `diff.mnemonicPrefix=no` to Git to ensure `diff` output is parseable
+"   (patch from Aaron Schrab, https://github.com/wincent/vcs-jump/pull/7).
 "
 " ## 1.0 (12 October 2019)
 "
