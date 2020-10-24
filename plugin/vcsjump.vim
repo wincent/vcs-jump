@@ -57,6 +57,41 @@
 " vcs-jump merge # find merge conflicts
 " ```
 "
+" You can also add `vcs-jump` as a Git subcommand that can be invoked as
+" `git jump`:
+"
+" ```
+" git jump diff # find hunks with diffs relative to current HEAD
+" git jump diff HEAD~10 # find hunks with diffs relative to specified commit
+" git jump grep stuff # find grep results for "stuff"
+" git jump merge # find merge conflicts
+" ```
+"
+" To do this, use one of the following three methods.
+"
+" Firstly, you can add a `git-jump` file to your `$PATH` with these contents,
+" and then mark it as executable with `chmod +x`:
+"
+" ```
+" #!/bin/sh
+"
+" vcs-jump "$@"
+" ```
+"
+" Secondly, you can add a symbolic link to the vcs-jump executable anywhere in
+" your path:
+"
+" ```
+" cd ~/bin
+" ln -s path/to/vcs-jump git-jump
+" ```
+"
+" Thirdly, you can create a Git alias:
+"
+" ```
+" git config --global alias.jump '!f() { vcs-jump "$@"; }; f'
+" ```
+"
 " @footer
 "
 " # Website
