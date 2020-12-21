@@ -97,7 +97,7 @@ end
 
 def mode_diff(args)
   args = shellescape(args)
-  diff =  git? ? `git -c diff.mnemonicPrefix=no diff --no-color #{args}` : `hg diff --git #{args}`
+  diff =  git? ? `git -c diff.noprefix=no -c diff.mnemonicPrefix=no diff --no-color #{args}` : `hg diff --git #{args}`
   idx  = nil
   file = nil
 
