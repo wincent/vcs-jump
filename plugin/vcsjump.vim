@@ -185,14 +185,23 @@
 " order):
 "
 " - Aaron Schrab
+" - Adam P. Regasz-Rethy
 " - Pascal Lalancette
+"
+" This list produced with:
+"
+" ```
+" :read !git shortlog -s HEAD | grep -v 'Greg Hurrell' | cut -f 2-3 | sed -e 's/^/- /'
+" ```
 "
 " # History
 "
 " ## master (not yet released)
 "
-" - Pass `diff.mnemonicPrefix=no` to Git to ensure `diff` output is parseable
-"   (patch from Aaron Schrab, https://github.com/wincent/vcs-jump/pull/7).
+" - Pass `diff.mnemonicPrefix=no` and `diff.noprefix=no` to Git to
+"   ensure `diff` output has the necessary prefixes for parsing (patches
+"   from Aaron Schrab: https://github.com/wincent/vcs-jump/pull/7; and
+"   Adam P. Regasz-Rethy: https://github.com/wincent/vcs-jump/pull/9).
 "
 " ## 1.0 (12 October 2019)
 "
