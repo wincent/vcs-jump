@@ -97,14 +97,14 @@ end
 
 def mode_diff(args)
   args = shellescape(args)
-  diff =  git? ? `git -c diff.mnemonicPrefix=no diff --no-color #{args}` : `hg diff --git #{args}`
+  diff =  git? ? `git -c diff.noprefix=no -c diff.mnemonicPrefix=no diff --no-color #{args}` : `hg diff --git #{args}`
   idx  = nil
   file = nil
 
   diff.lines.each do |line|
     # setting the inner Perl hacker free since 2007
     (line =~ %r{^\+\+\+ b/(.*)}) ? (file = root + $~[1]) : (next unless file)
-    (line =~ %r{^@@ .*\+(\d+)}) ? (idx = $~[1].to_i) : (next unless idx)
+    (line =~ %r{^@@ .*?\+(\d+)}) ? (idx = $~[1].to_i) : (next unless idx)
     (line =~ %r{^ }) && (idx += 1; next)
     (line =~ %r{^[-+]\s*(.*)}) && ( puts "#{file}:#{idx}: #{$~[1]}"; idx = nil)
   end
