@@ -188,8 +188,8 @@ git tag -s -m "$VERSION release" $VERSION
 - Publish the code:
 
 ```
-git push origin master --follow-tags
-git push github master --follow-tags
+git push origin main --follow-tags
+git push github main --follow-tags
 ```
 
 - Produce the release archive:
@@ -218,7 +218,7 @@ This list produced with:
 
 ## History<a name="vcs-jump-history" href="#user-content-vcs-jump-history"></a>
 
-### master (not yet released)<a name="vcs-jump-master-not-yet-released" href="#user-content-vcs-jump-master-not-yet-released"></a>
+### main (not yet released)<a name="vcs-jump-main-not-yet-released" href="#user-content-vcs-jump-main-not-yet-released"></a>
 
 - Pass `diff.mnemonicPrefix=no` and `diff.noprefix=no` to Git to ensure `diff` output has the necessary prefixes for parsing (patches from Aaron Schrab: https://github.com/wincent/vcs-jump/pull/7; and Adam P. Regasz-Rethy: https://github.com/wincent/vcs-jump/pull/9).
 

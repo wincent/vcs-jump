@@ -175,7 +175,7 @@ async function testGit() {
       git add foo bar subdir
       git commit -m 'More stuff'
 
-      git checkout master
+      git checkout main
     `;
 
     /*

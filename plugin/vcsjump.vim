@@ -164,8 +164,8 @@
 " - Publish the code:
 "
 " ```
-" git push origin master --follow-tags
-" git push github master --follow-tags
+" git push origin main --follow-tags
+" git push github main --follow-tags
 " ```
 "
 " - Produce the release archive:
@@ -196,7 +196,7 @@
 "
 " # History
 "
-" ## master (not yet released)
+" ## main (not yet released)
 "
 " - Pass `diff.mnemonicPrefix=no` and `diff.noprefix=no` to Git to
 "   ensure `diff` output has the necessary prefixes for parsing (patches
