@@ -289,3 +289,6 @@ if !hasmapto('<Plug>(VcsJump)') && maparg('<Leader>d', 'n') ==# ''
 endif
 
 nnoremap <Plug>(VcsJump) :VcsJump diff<space>
+
+let &cpoptions = s:cpoptions
+unlet s:cpoptions
