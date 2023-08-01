@@ -290,5 +290,6 @@ endif
 
 nnoremap <Plug>(VcsJump) :VcsJump diff<space>
 
+" Restore 'cpoptions' to its former value.
 let &cpoptions = s:cpoptions
 unlet s:cpoptions
