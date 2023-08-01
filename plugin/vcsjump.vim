@@ -202,6 +202,8 @@
 "   ensure `diff` output has the necessary prefixes for parsing (patches
 "   from Aaron Schrab: https://github.com/wincent/vcs-jump/pull/7; and
 "   Adam P. Regasz-Rethy: https://github.com/wincent/vcs-jump/pull/9).
+" - fix: don't clobber 'cpoptions' (patch from Adam P. Regasz-Rethy:
+"   https://github.com/wincent/vcs-jump/pull/10).
 "
 " ## 1.0 (12 October 2019)
 "
@@ -289,3 +291,7 @@ if !hasmapto('<Plug>(VcsJump)') && maparg('<Leader>d', 'n') ==# ''
 endif
 
 nnoremap <Plug>(VcsJump) :VcsJump diff<space>
+
+" Restore 'cpoptions' to its former value.
+let &cpoptions = s:cpoptions
+unlet s:cpoptions
