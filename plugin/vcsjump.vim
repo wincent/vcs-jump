@@ -96,11 +96,7 @@
 "
 " # Website
 "
-" The official vcs-jump source code repo is at:
-"
-"   http://git.wincent.com/vcs-jump.git
-"
-" A mirror exists at:
+" Source code:
 "
 "   https://github.com/wincent/vcs-jump
 "
