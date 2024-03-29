@@ -227,4 +227,4 @@ This list produced with:
 
 ### 0.1 (2 June 2019)<a name="vcs-jump-01-2-june-2019" href="#user-content-vcs-jump-01-2-june-2019"></a>
 
-- Initial release: originally extracted from my dotfiles in https://wincent.com/n/vcs-jump-origin and then iterated on before extracting into a standalone Vim plug-in.
+- Initial release: originally extracted from my dotfiles in https://wincent.dev/n/vcs-jump-origin and then iterated on before extracting into a standalone Vim plug-in.
