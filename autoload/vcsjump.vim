@@ -29,10 +29,16 @@ function! vcsjump#jump(bang, command) abort
   let l:buffer_mode=a:bang ? !l:buffer_mode : l:buffer_mode
   let l:cd=l:buffer_mode ? 'cd ' . expand("%:p:h:S") . ' && ' : ''
   let l:command=join(map(split(a:command), 'shellescape(v:val)'))
-  cexpr system(
-        \   l:cd .
-        \   s:jump_path . ' ' . l:command . ' 2> /dev/null'
-        \ )
-  call s:set_title('vcs-jump ' . a:command)
-  cwindow
+  let l:original_errorformat=&errorformat
+  try
+    let &errorformat='%f:%l: %m'
+    cexpr system(
+          \   l:cd .
+          \   s:jump_path . ' ' . l:command . ' 2> /dev/null'
+          \ )
+    call s:set_title('vcs-jump ' . a:command)
+    cwindow
+  finally
+    let &errorformat=l:original_errorformat
+  endtry
 endfunction
