@@ -200,6 +200,7 @@
 "   Adam P. Regasz-Rethy: https://github.com/wincent/vcs-jump/pull/9).
 " - fix: don't clobber 'cpoptions' (patch from Adam P. Regasz-Rethy:
 "   https://github.com/wincent/vcs-jump/pull/10).
+" - fix: don't allow local 'errorformat' to interfere with operation.
 "
 " ## 1.0 (12 October 2019)
 "

@@ -218,6 +218,7 @@ This list produced with:
 
 - Pass `diff.mnemonicPrefix=no` and `diff.noprefix=no` to Git to ensure `diff` output has the necessary prefixes for parsing (patches from Aaron Schrab: https://github.com/wincent/vcs-jump/pull/7; and Adam P. Regasz-Rethy: https://github.com/wincent/vcs-jump/pull/9).
 - fix: don't clobber 'cpoptions' (patch from Adam P. Regasz-Rethy: https://github.com/wincent/vcs-jump/pull/10).
+- fix: don't allow local 'errorformat' to interfere with operation.
 
 ### 1.0 (12 October 2019)<a name="vcs-jump-10-12-october-2019" href="#user-content-vcs-jump-10-12-october-2019"></a>
 
