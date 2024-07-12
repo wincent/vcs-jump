@@ -31,7 +31,8 @@ def open_editor(tmp)
   editor = `which vim`.chomp unless editor
   raise 'error: cannot locate editor' if editor == ''
 
-  if Pathname.new(editor).basename.to_s == 'vim'
+  basename = Pathname.new(editor).basename.to_s
+  if basename == 'vim' || basename == 'nvim'
     additional_args = %w[-c :cw] # open the quickfix window
   end
 
