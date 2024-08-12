@@ -31,7 +31,7 @@ function! vcsjump#jump(bang, command) abort
   let l:command=join(map(split(a:command), 'shellescape(v:val)'))
   let l:original_errorformat=&errorformat
   try
-    let &errorformat='%f:%l: %m'
+    let &errorformat='%f:%l:%c:%m,%f:%l:%m'
     cexpr system(
           \   l:cd .
           \   s:jump_path . ' ' . l:command . ' 2> /dev/null'

@@ -132,15 +132,20 @@ def mode_merge(__args__ignored)
 end
 
 def mode_grep(args)
+  # Clean up extra whitespace, to make results look better if the editor shows
+  # them to us in the status bar.
   if git?
-    # `grep -n` generates nice quickfix-looking lines by itself,
-    # but let's clean up extra whitespace, so they look better if the
-    # editor shows them to us in the status bar.
-    files = %x{git grep -n #{shellescape args}}.lines
-    puts files.collect { |f| pwd + f.chomp.sub(/:\s*/, ':') }
+    can_use_column = %x{git grep --help}.include?('--column')
+    if can_use_column
+      files = %x{git grep -n --column #{shellescape args}}.lines
+      puts files.collect { |f| pwd + f.chomp.sub(/(:\d+:\d+:)\s*/, '\1') }
+    else
+      files = %x{git grep -n #{shellescape args}}.lines
+      puts files.collect { |f| pwd + f.chomp.sub(/(:\d+:)\s*/, '\1') }
+    end
   else
     files = %x{hg grep --template '{path}:{lineno}:{texts}\n' #{shellescape args}}.lines
-    puts files.collect { |f| root + f.chomp.sub(/:\s*/, ':') }
+    puts files.collect { |f| root + f.chomp.sub(/(:\d+:)\s*/, '\1') }
   end
 end
 
