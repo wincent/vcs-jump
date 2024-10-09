@@ -92,6 +92,28 @@
 " git config --global alias.jump '!f() { vcs-jump "$@"; }; f'
 " ```
 "
+" By default, vcs-jump will print usage information if called without any
+" arguments. A useful enhancement to the above alias is to teach `git jump` to
+" pick a reasonable default action instead. The following runs `git jump merge`
+" if there are conflicts, and `git jump diff` if there are modifications,
+" otherwise falling back to the standard behavior:
+"
+" ```
+" git config --global alias.jump '!f() {
+"   if [ "$#" -eq 0 ]; then
+"     if [ -n "$(git diff --name-only --diff-filter=U)" ]; then
+"       vcs-jump merge;
+"     elif ! git diff --quiet; then
+"       vcs-jump diff;
+"     else
+"       vcs-jump;
+"     fi;
+"   else
+"     vcs-jump "$@";
+"   fi;
+" }; f'
+" ```
+"
 " @footer
 "
 " # Website
