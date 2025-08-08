@@ -103,8 +103,8 @@ def mode_diff(args)
   file = nil
 
   diff.lines.each do |line|
-    # setting the inner Perl hacker free since 2007
-    (line =~ %r{^\+\+\+ b/(.*)}) ? (file = root + $~[1]) : (next unless file)
+    # Setting the inner Perl hacker free since 2007.
+    (line =~ %r{^\+\+\+ b/(.*?)\t?$}) ? (file = root + $~[1]) : (next unless file)
     (line =~ %r{^@@ .*?\+(\d+)}) ? (idx = $~[1].to_i) : (next unless idx)
     (line =~ %r{^ }) && (idx += 1; next)
     (line =~ %r{^[-+]\s*(.*)}) && ( puts "#{file}:#{idx}: #{$~[1]}"; idx = nil)
