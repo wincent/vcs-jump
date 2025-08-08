@@ -261,7 +261,7 @@ This list produced with:
 <
 HISTORY                                                       *vcs-jump-history*
 
-main (not yet released) ~
+1.0.1 (8 August 2025) ~
 
 - Pass `diff.mnemonicPrefix=no` and `diff.noprefix=no` to Git to ensure `diff`
   output has the necessary prefixes for parsing (patches from Aaron Schrab:
